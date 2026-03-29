@@ -119,7 +119,7 @@
 //? $mod = prefrom modulo opration
 
 //* Example = db.user.find.({name:{$regex:"^A"}})
-//* Example = db.user.find.({name:{$mode:[5,0]}})
+//* Example = db.user.find.({name:{$mod:[5,0]}})
 
 
 // use("employes");
