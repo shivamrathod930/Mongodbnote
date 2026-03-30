@@ -279,3 +279,195 @@ db.user.find({
           ]
      }
 })
+
+//! q 26 
+
+//? sempal data
+
+db.products.insertMany([
+    {
+        name: "Gaming Laptop",
+        price: 75000,
+        category: "electronics",
+        stock: 15,
+        discount: 10,
+        tags: ["gaming", "laptop", "electronics"]
+    },
+    {
+        name: "Smartphone",
+        price: 25000,
+        category: "electronics",
+        stock: 8,
+        discount: 15,
+        tags: ["phone", "android", "electronics"]
+    },
+    {
+        name: "Wireless Mouse",
+        price: 800,
+        category: "accessories",
+        stock: 50,
+        discount: 5,
+        tags: ["mouse", "computer", "electronics"]
+    },
+    {
+        name: "Mechanical Keyboard",
+        price: 3500,
+        category: "accessories",
+        stock: 20,
+        discount: 12,
+        tags: ["keyboard", "gaming", "computer"]
+    },
+    {
+        name: "LED Monitor",
+        price: 12000,
+        category: "electronics",
+        stock: 5,
+        discount: 18,
+        tags: ["monitor", "display", "electronics"]
+    },
+    {
+        name: "Office Chair",
+        price: 6000,
+        category: "furniture",
+        stock: 0,
+        discount: 20,
+        tags: ["chair", "office", "furniture"]
+    },
+    {
+        name: "Gaming Headset",
+        price: 4500,
+        category: "electronics",
+        stock: 12,
+        discount: 25,
+        tags: ["gaming", "audio", "electronics"]
+    }
+])
+
+// todo intermidiate quetions
+//! q26
+
+db.products.find({
+     price:{$gt:1000}
+})
+//! q 27 
+
+db.products.find({
+     price:{$gt:500,$lt:2000}
+})
+
+//! q 28
+
+db.products.find({
+     category:'electronics'
+})
+//! q 29
+
+db.products.find({
+     stock:{$lt:10}
+})
+
+
+//! q 30
+
+db.products.find({
+     stock:0
+})
+
+//! q 31
+
+db.products.find().sort({price:1})
+
+//! q32 
+
+db.products.find().sort({price:-1}).limit(5)
+
+
+//! q 34 
+
+db.products.find({
+     name:/phone/
+})
+
+//! q35 
+
+db.products.find({
+     discount:{$gt:24}
+})
+
+//! q 36
+
+db.products.find({
+     category:{$ne:'electronics'}
+})
+
+
+//! q 37
+
+db.products.find({
+     tags:'gaming'
+})
+db.products.find({
+     tags:{$in:['gaming']}
+})
+
+//! q 38
+
+db.products.find({
+     tags:{$all:['gaming','laptop']}
+})
+
+//! q 39
+
+db.products.find({
+     tags:{$size:3}
+})
+
+//! q 40
+
+db.products.updateOne(
+     {name:'Gaming Laptop'},
+     {$push:{tags:'new'}}
+)
+
+//! q 41
+
+db.products.updateOne(
+     {name:'Gaming Laptop'},
+     {$pull:{tags:'new'}}
+)
+
+//! q 42
+//? sempal data
+
+db.orders.insertMany([
+    {
+        user: "Rahul Sharma",
+        totalAmount: 80000,
+        status: "delivered",
+        orderDate: new Date("2025-02-10")
+    },
+    {
+        user: "Priya Singh",
+        totalAmount: 3000,
+        status: "pending",
+        orderDate: new Date("2025-03-01")
+    },
+    {
+        user: "Amit Verma",
+        totalAmount: 15000,
+        status: "cancelled",
+        orderDate: new Date("2024-12-15")
+    },
+    {
+        user: "Rahul Sharma",
+        totalAmount: 4500,
+        status: "delivered",
+        orderDate: new Date("2025-01-20")
+    },
+    {
+        user: "Sneha Gupta",
+        totalAmount: 1200,
+        status: "pending",
+        orderDate: new Date("2025-03-05")
+    }
+])
